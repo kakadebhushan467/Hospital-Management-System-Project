@@ -1,5 +1,8 @@
 package com.Hospital.Management.System.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +25,12 @@ public class PatientConroller {
 	@PostMapping("/insert")
 	public Patient createPatient(@RequestBody Patient patient) {
 		return patientRepository.save(patient);
+	}
+	
+	//Get the all data patient
+	@GetMapping
+	public List<Patient>getAllPatient(){
+		return patientRepository.findAll();
+		
 	}
 }
